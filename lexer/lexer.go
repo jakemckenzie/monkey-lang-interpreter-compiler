@@ -55,6 +55,13 @@ func (l *Lexer) skipWhitespace() {
 	}
 }
 
+func newToken(tokenType token.TokenType, ch byte) token.Token {
+	return token.Token{
+		Type:    tokenType,
+		Literal: string(ch),
+	}
+}
+
 func (l *Lexer) NextToken() token.Token {
 	var tok token.Token
 
@@ -62,21 +69,21 @@ func (l *Lexer) NextToken() token.Token {
 
 	switch l.ch {
 	case '=':
-		tok = token.Token{Type: token.ASSIGN, Literal: string(l.ch)}
+		tok = newToken(token.ASSIGN, l.ch)
 	case '+':
-		tok = token.Token{Type: token.PLUS, Literal: string(l.ch)}
+		tok = newToken(token.PLUS, l.ch)
 	case ',':
-		tok = token.Token{Type: token.COMMA, Literal: string(l.ch)}
+		tok = newToken(token.COMMA, l.ch)
 	case ';':
-		tok = token.Token{Type: token.SEMICOLON, Literal: string(l.ch)}
+		tok = newToken(token.SEMICOLON, l.ch)
 	case '(':
-		tok = token.Token{Type: token.LPAREN, Literal: string(l.ch)}
+		tok = newToken(token.LPAREN, l.ch)
 	case ')':
-		tok = token.Token{Type: token.RPAREN, Literal: string(l.ch)}
+		tok = newToken(token.RPAREN, l.ch)
 	case '{':
-		tok = token.Token{Type: token.LBRACE, Literal: string(l.ch)}
+		tok = newToken(token.LBRACE, l.ch)
 	case '}':
-		tok = token.Token{Type: token.RBRACE, Literal: string(l.ch)}
+		tok = newToken(token.RBRACE, l.ch)
 	case 0:
 		tok = token.Token{Type: token.EOF, Literal: ""}
 	default:
@@ -87,7 +94,7 @@ func (l *Lexer) NextToken() token.Token {
 		} else if isDigit(l.ch) {
 			return token.Token{Type: token.INT, Literal: l.readNumber()}
 		} else {
-			tok = token.Token{Type: token.ILLEGAL, Literal: string(l.ch)}
+			tok = newToken(token.ILLEGAL, l.ch)
 		}
 	}
 	l.readChar()

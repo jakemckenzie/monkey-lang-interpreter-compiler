@@ -71,15 +71,18 @@ let money = false;
 		{Type: token.EQ, Literal: "=="},
 		{Type: token.IDENT, Literal: "y"},
 		{Type: token.SEMICOLON, Literal: ";"},
+
 		// bob != alice;
 		{Type: token.IDENT, Literal: "bob"},
 		{Type: token.NOT_EQ, Literal: "!="},
 		{Type: token.IDENT, Literal: "alice"},
 		{Type: token.SEMICOLON, Literal: ";"},
+
 		// return true;
 		{Type: token.RETURN, Literal: "return"},
 		{Type: token.TRUE, Literal: "true"},
 		{Type: token.SEMICOLON, Literal: ";"},
+		
 		// let money = false;
 		{Type: token.LET, Literal: "let"},
 		{Type: token.IDENT, Literal: "money"},

@@ -83,10 +83,8 @@ func (l *Lexer) NextToken() token.Token {
 				Type:    token.EQ,
 				Literal: string(ch) + string(l.ch),
 			}
-			l.readChar()
 		} else {
 			tok = newToken(token.ASSIGN, l.ch)
-			l.readChar()
 		}
 	case '!':
 		if l.peekChar() == '=' {
@@ -96,47 +94,33 @@ func (l *Lexer) NextToken() token.Token {
 				Type:    token.NOT_EQ,
 				Literal: string(ch) + string(l.ch),
 			}
-			l.readChar()
 		} else {
 			tok = newToken(token.BANG, l.ch)
-			l.readChar()
 		}
 	case '+':
 		tok = newToken(token.PLUS, l.ch)
-		l.readChar()
 	case '-':
 		tok = newToken(token.MINUS, l.ch)
-		l.readChar()
 	case '/':
 		tok = newToken(token.SLASH, l.ch)
-		l.readChar()
 	case '*':
 		tok = newToken(token.ASTERISK, l.ch)
-		l.readChar()
 	case '<':
 		tok = newToken(token.LT, l.ch)
-		l.readChar()
 	case '>':
 		tok = newToken(token.GT, l.ch)
-		l.readChar()
 	case ',':
 		tok = newToken(token.COMMA, l.ch)
-		l.readChar()
 	case ';':
 		tok = newToken(token.SEMICOLON, l.ch)
-		l.readChar()
 	case '(':
 		tok = newToken(token.LPAREN, l.ch)
-		l.readChar()
 	case ')':
 		tok = newToken(token.RPAREN, l.ch)
-		l.readChar()
 	case '{':
 		tok = newToken(token.LBRACE, l.ch)
-		l.readChar()
 	case '}':
 		tok = newToken(token.RBRACE, l.ch)
-		l.readChar()
 	case 0:
 		tok = token.Token{Type: token.EOF, Literal: ""}
 	default:
@@ -148,8 +132,8 @@ func (l *Lexer) NextToken() token.Token {
 			return token.Token{Type: token.INT, Literal: l.readNumber()}
 		} else {
 			tok = newToken(token.ILLEGAL, l.ch)
-			l.readChar()
 		}
 	}
+	l.readChar()
 	return tok
 }

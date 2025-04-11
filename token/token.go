@@ -22,11 +22,29 @@ const (
 	RBRACE    TokenType = "RBRACE"
 	LET       TokenType = "LET"
 	FN        TokenType = "FN"
+	TRUE      TokenType = "TRUE"
+	FALSE     TokenType = "FALSE"
+	IF        TokenType = "IF"
+	ELSE      TokenType = "ELSE"
+	RETURN    TokenType = "RETURN"
+	EQ        TokenType = "=="
+	NOT_EQ    TokenType = "!="
+	MINUS     TokenType = "-"
+	SLASH     TokenType = "/"
+	ASTERISK  TokenType = "*"
+	LT        TokenType = "<"
+	GT        TokenType = ">"
+	BANG      TokenType = "!"
 )
 
 var keywords = map[string]TokenType{
-	"let": LET,
-	"fn":  FN,
+	"let":    LET,
+	"fn":     FN,
+	"true":   TRUE,
+	"false":  FALSE,
+	"if":     IF,
+	"else":   ELSE,
+	"return": RETURN,
 }
 
 func LookupIdent(ident string) TokenType {

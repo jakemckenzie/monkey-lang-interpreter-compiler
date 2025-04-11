@@ -1,36 +1,13 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"monkey/lexer"
-	"monkey/token"
+	"monkey/repl"
 	"os"
 )
 
 func main() {
-
-	scanner := bufio.NewScanner(os.Stdin)
-	fmt.Println("Interpretter for Monkey (type 'exit' to quit):")
-
-	for {
-		fmt.Print(">> ")
-		scanned := scanner.Scan()
-		if !scanned {
-			return
-		}
-
-		line := scanner.Text()
-
-		if line == "exit" {
-			fmt.Println("Thank you for using my Monkey interpretter")
-			break
-		}
-
-		l := lexer.New(line)
-
-		for tok := l.NextToken(); tok.Type != token.EOF; tok = l.NextToken() {
-			fmt.Printf("%+v\n", tok)
-		}
-	}
+	fmt.Println("Welcome to the Monkey REPL!")
+	fmt.Println("This is my attempt at constructing an interpretter for Monkey language (type 'exit' to quit):")
+	repl.Start(os.Stdin, os.Stdout)
 }

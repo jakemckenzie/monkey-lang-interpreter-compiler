@@ -143,12 +143,12 @@ func (l *Lexer) NextToken() token.Token {
 		if isLetter(l.ch) {
 			literal := l.readIdentifier()
 			tokType := token.LookupIdent(literal)
-			return token.Token{Type: tokType, Literal: literal} // Position advanced by readIdentifier
+			return token.Token{Type: tokType, Literal: literal}
 		} else if isDigit(l.ch) {
-			return token.Token{Type: token.INT, Literal: l.readNumber()} // Position advanced by readNumber
+			return token.Token{Type: token.INT, Literal: l.readNumber()}
 		} else {
 			tok = newToken(token.ILLEGAL, l.ch)
-			l.readChar() // Move past the illegal character
+			l.readChar()
 		}
 	}
 	return tok

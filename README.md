@@ -8,3 +8,5 @@ the moment. For now I've verified that it works and will work towards reducing
 the complexity later.
 
 EDIT: Went back to the chapter. Messed up my case statement fall through logic.
+
+# Chapter 2:

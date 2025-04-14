@@ -82,7 +82,7 @@ let money = false;
 		{Type: token.RETURN, Literal: "return"},
 		{Type: token.TRUE, Literal: "true"},
 		{Type: token.SEMICOLON, Literal: ";"},
-		
+
 		// let money = false;
 		{Type: token.LET, Literal: "let"},
 		{Type: token.IDENT, Literal: "money"},

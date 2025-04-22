@@ -24,4 +24,4 @@ sure if it's such an ivory tower problem like Jon describes but more a contextua
 With any of this understanding how to set up order pressidence is a huge problem with this sort of parsing. I think the game programmers writing C coming out of the games industry enums have order presidence baked into them, as far as I know few constructs in the object oriented world of functional world have tools for this. Jon's comment about enums for this in that video was fairly subtle but important I think. I big problem I have is that writing the code almost never matches up 1:1 with the design of the thing. I think a big problem with the Dragon book that Ball doesn't fall short with is that you just have to start writing code. Filling people's head with a dozen pathways and ways to represent the problem falls short to 1 succienct explanation from someone in the trenches then experimenting yourself.
 
 
-pg. 53
+pg. 59 Prefix Operations
